@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+
 namespace CA_10389618
 {
     public partial class Student : CA_10389618.Menu
@@ -21,102 +23,43 @@ namespace CA_10389618
         }
 
 
-        //method to clear form and add automated StudentID
-        protected void ClearForm()
-        {
-            cbCounty.DataSource = Enum.GetValues(typeof(County));
-            cbLevel.DataSource = Enum.GetValues(typeof(Level));
-            int k = GetLastID();
-            int St_ID = k+1;
-            txtAd1.Text = "";
-            txtAd2.Text = "";
-            txtCity.Text = "";
-            txtCountry.Text = "";
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtStudentID.Text = St_ID.ToString();
-            cbCounty.SelectedItem = County.None;
-            cbLevel.SelectedItem = Level.Undergraduate;
-
-        }
 
 
         //method to check if everything is filled in
         protected void MustFillUp()
         {
-            if (string.IsNullOrEmpty(txtAd1.Text))
+            Regex regex = new Regex("^[a-zA-Z]+$");
+            Regex regex2 = new Regex("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
+            Regex regex3 = new Regex("^.+@[^\\.].*\\.[a-z]{2,}$");
+            if (string.IsNullOrEmpty(txtFirstName.Text)|| !regex.IsMatch(txtFirstName.Text))
             {
-                MessageBox.Show("Address must be filled in", "Message", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                throw new FormatException("First name must be filled in and cannot contain numbers");
             }
-            else if (string.IsNullOrEmpty(txtCity.Text))
+            else if (string.IsNullOrEmpty(txtLastName.Text) || !regex.IsMatch(txtLastName.Text))
             {
-                MessageBox.Show("City must be filled in","Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw new FormatException("Last name must be filled in and cannot contain numbers");
             }
-            else if (string.IsNullOrEmpty(txtCountry.Text))
+            else if (string.IsNullOrEmpty(txtCountry.Text) || !regex.IsMatch(txtCountry.Text))
             {
-                MessageBox.Show("City must be filled in","Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw new FormatException("Country must be filled in and cannot contain numbers");
             }
-            else if (string.IsNullOrEmpty(txtFirstName.Text))
+            else if (string.IsNullOrEmpty(txtCity.Text) || !regex.IsMatch(txtCity.Text))
             {
-                MessageBox.Show("City must be filled in","Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw new FormatException("City must be filled in and cannot contain numbers");
             }
-            else if (string.IsNullOrEmpty(txtLastName.Text))
+            else if (string.IsNullOrEmpty(txtAd1.Text))
             {
-                MessageBox.Show("City must be filled in","Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw new FormatException("Address line 1 must be filled in");
             }
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            SqlConnection conn = EstablishConnection();
-            try
+            else if (string.IsNullOrEmpty(txtPhoneNumber.Text) || !regex2.IsMatch(txtPhoneNumber.Text))
             {
-
-                //insert into database
-                if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
-                    conn.Open();
-                MustFillUp();
-                string stmt1 = "INSERT INTO Student (StudentID, FirstName, LastName, Country, County, City, AddressLine1, AddressLine2, Level) " +
-                    "VALUES(@StudentID,@FirstName, @LastName, @Country, @County, @City, @AddressLine1, @AddressLine2, @Level);";
-                SqlCommand cmd = new SqlCommand(stmt1, conn);
-                cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text);
-                cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                cmd.Parameters.AddWithValue("@Country", txtCountry.Text);
-                cmd.Parameters.AddWithValue("@County", cbCounty.SelectedItem);
-                cmd.Parameters.AddWithValue("@City", txtCity.Text);
-                cmd.Parameters.AddWithValue("@AddressLine1", txtAd1.Text);
-                cmd.Parameters.AddWithValue("@AddressLine2", txtAd2.Text);
-                cmd.Parameters.AddWithValue("@Level", cbLevel.SelectedItem);
-                cmd.ExecuteNonQuery();
+                throw new FormatException("Phone number must be filled in and cannot contain letters");
             }
-            catch (Exception ex)
+            else if (string.IsNullOrEmpty(txtEmail.Text) || !regex3.IsMatch(txtEmail.Text))
             {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-                ClearForm();
-
+                throw new FormatException("Email number must be filled in and has to contain '@' ");
             }
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if(MessageBox.Show("Are you sure you would like to cancel?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
-            {
-                ClearForm();
-            }
-            
-        }
-
-        private void Student_Load(object sender, EventArgs e)
-        {
-            ClearForm();
-        }
+        
     }
 }

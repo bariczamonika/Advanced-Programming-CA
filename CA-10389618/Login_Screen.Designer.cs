@@ -37,6 +37,9 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnFillUsers = new System.Windows.Forms.Button();
+            this.btnClearUsers = new System.Windows.Forms.Button();
+            this.btnShowUsersAndPasswords = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +126,44 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnFillUsers
+            // 
+            this.btnFillUsers.Location = new System.Drawing.Point(16, 240);
+            this.btnFillUsers.Name = "btnFillUsers";
+            this.btnFillUsers.Size = new System.Drawing.Size(145, 23);
+            this.btnFillUsers.TabIndex = 9;
+            this.btnFillUsers.Text = "Fill up user table inDB";
+            this.btnFillUsers.UseVisualStyleBackColor = true;
+            this.btnFillUsers.Click += new System.EventHandler(this.btnFillUsers_Click);
+            // 
+            // btnClearUsers
+            // 
+            this.btnClearUsers.Location = new System.Drawing.Point(167, 240);
+            this.btnClearUsers.Name = "btnClearUsers";
+            this.btnClearUsers.Size = new System.Drawing.Size(145, 23);
+            this.btnClearUsers.TabIndex = 10;
+            this.btnClearUsers.Text = "Clear user table in DB";
+            this.btnClearUsers.UseVisualStyleBackColor = true;
+            this.btnClearUsers.Click += new System.EventHandler(this.btnClearUsers_Click);
+            // 
+            // btnShowUsersAndPasswords
+            // 
+            this.btnShowUsersAndPasswords.Location = new System.Drawing.Point(318, 240);
+            this.btnShowUsersAndPasswords.Name = "btnShowUsersAndPasswords";
+            this.btnShowUsersAndPasswords.Size = new System.Drawing.Size(145, 23);
+            this.btnShowUsersAndPasswords.TabIndex = 11;
+            this.btnShowUsersAndPasswords.Text = "Show users and passwords";
+            this.btnShowUsersAndPasswords.UseVisualStyleBackColor = true;
+            this.btnShowUsersAndPasswords.Click += new System.EventHandler(this.btnShowUsersAndPasswords_Click);
+            // 
             // Login_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 244);
+            this.ClientSize = new System.Drawing.Size(519, 289);
+            this.Controls.Add(this.btnShowUsersAndPasswords);
+            this.Controls.Add(this.btnClearUsers);
+            this.Controls.Add(this.btnFillUsers);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
@@ -149,6 +185,9 @@
             this.Controls.SetChildIndex(this.txtUserName, 0);
             this.Controls.SetChildIndex(this.txtPassword, 0);
             this.Controls.SetChildIndex(this.btnSubmit, 0);
+            this.Controls.SetChildIndex(this.btnFillUsers, 0);
+            this.Controls.SetChildIndex(this.btnClearUsers, 0);
+            this.Controls.SetChildIndex(this.btnShowUsersAndPasswords, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,5 +205,8 @@
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnFillUsers;
+        private System.Windows.Forms.Button btnClearUsers;
+        private System.Windows.Forms.Button btnShowUsersAndPasswords;
     }
 }

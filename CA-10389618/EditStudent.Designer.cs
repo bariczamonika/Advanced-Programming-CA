@@ -1,6 +1,6 @@
 ﻿namespace CA_10389618
 {
-    public partial class AddStudent
+    partial class EditStudent
     {
         /// <summary>
         /// Required designer variable.
@@ -30,22 +30,29 @@
         {
             this.SuspendLayout();
             // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Enabled = false;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Enabled = false;
+            // 
             // btnCancel
             // 
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click_1);
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // AddStudent
+            // EditStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 428);
-            this.Name = "AddStudent";
-            this.Text = "AddStudent";
-            this.Load += new System.EventHandler(this.AddStudent_Load_1);
+            this.ClientSize = new System.Drawing.Size(553, 450);
+            this.Name = "EditStudent";
+            this.Text = "EditStudent";
             this.ResumeLayout(false);
             this.PerformLayout();
 

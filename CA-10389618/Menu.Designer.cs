@@ -129,6 +129,7 @@
             this.editStudentToolStripMenuItem.Name = "editStudentToolStripMenuItem";
             this.editStudentToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.editStudentToolStripMenuItem.Text = "Edit Student";
+            this.editStudentToolStripMenuItem.Click += new System.EventHandler(this.editStudentToolStripMenuItem_Click);
             // 
             // deleteStudentToolStripMenuItem
             // 

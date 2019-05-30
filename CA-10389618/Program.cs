@@ -16,7 +16,10 @@ namespace CA_10389618
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Screen());
+            Login_Screen lgScreen = new Login_Screen();
+            Application.Run(lgScreen);
+            
+            
         }
     }
 }

@@ -48,6 +48,12 @@
             this.cbCounty = new System.Windows.Forms.ComboBox();
             this.cbLevel = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -184,13 +190,12 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(284, 277);
+            this.btnCancel.Location = new System.Drawing.Point(365, 393);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(102, 23);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // cbCounty
             // 
@@ -210,19 +215,73 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(147, 277);
+            this.btnSubmit.Location = new System.Drawing.Point(147, 393);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(107, 23);
-            this.btnSubmit.TabIndex = 9;
+            this.btnSubmit.TabIndex = 12;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.Location = new System.Drawing.Point(147, 278);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(320, 20);
+            this.txtPhoneNumber.TabIndex = 9;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(147, 304);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(320, 20);
+            this.txtEmail.TabIndex = 10;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(147, 330);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(320, 56);
+            this.listBox1.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(30, 285);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Phone Number";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(30, 311);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Email address";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(30, 331);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Course";
             // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 328);
+            this.ClientSize = new System.Drawing.Size(544, 435);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.cbLevel);
             this.Controls.Add(this.cbCounty);
             this.Controls.Add(this.btnCancel);
@@ -245,7 +304,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Student";
             this.Text = "Student";
-            this.Load += new System.EventHandler(this.Student_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -266,6 +324,12 @@
             this.Controls.SetChildIndex(this.btnCancel, 0);
             this.Controls.SetChildIndex(this.cbCounty, 0);
             this.Controls.SetChildIndex(this.cbLevel, 0);
+            this.Controls.SetChildIndex(this.txtPhoneNumber, 0);
+            this.Controls.SetChildIndex(this.txtEmail, 0);
+            this.Controls.SetChildIndex(this.listBox1, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.label11, 0);
+            this.Controls.SetChildIndex(this.label12, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +357,11 @@
         protected System.Windows.Forms.ComboBox cbCounty;
         protected System.Windows.Forms.ComboBox cbLevel;
         protected System.Windows.Forms.Button btnSubmit;
+        protected System.Windows.Forms.TextBox txtPhoneNumber;
+        protected System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -28,24 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
+            // cbCounty
+            // 
+            this.cbCounty.Size = new System.Drawing.Size(373, 23);
+            // 
             // btnSubmit
             // 
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Visible = false;
+            // 
             // AddStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 428);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(874, 533);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "AddStudent";
-            this.Text = "AddStudent";
+            this.Text = "Add Student";
             this.Load += new System.EventHandler(this.AddStudent_Load_1);
+            this.Controls.SetChildIndex(this.pictureBox2, 0);
+            this.Controls.SetChildIndex(this.pictureBox1, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.txtStudentID, 0);
+            this.Controls.SetChildIndex(this.btnSubmit, 0);
+            this.Controls.SetChildIndex(this.btnCancel, 0);
+            this.Controls.SetChildIndex(this.cbCounty, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.label11, 0);
+            this.Controls.SetChildIndex(this.rbUndergraduate, 0);
+            this.Controls.SetChildIndex(this.rbPostGraduate, 0);
+            this.Controls.SetChildIndex(this.btnPrevious, 0);
+            this.Controls.SetChildIndex(this.btnNext, 0);
+            this.Controls.SetChildIndex(this.txtPhoneNumber, 0);
+            this.Controls.SetChildIndex(this.txtEmail, 0);
+            this.Controls.SetChildIndex(this.txtAd2, 0);
+            this.Controls.SetChildIndex(this.txtAd1, 0);
+            this.Controls.SetChildIndex(this.txtCity, 0);
+            this.Controls.SetChildIndex(this.txtCountry, 0);
+            this.Controls.SetChildIndex(this.txtLastName, 0);
+            this.Controls.SetChildIndex(this.txtFirstName, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

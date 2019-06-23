@@ -108,8 +108,8 @@ namespace CA_10389618
                         if (CheckSecurePassword(pWord, savedHashedPassword))
                         {
                             this.Hide();
-                            Menu menu = new Menu();
-                            menu.Show();
+                            MainScreen mc = new MainScreen();
+                            mc.Show();
                         }
 
                     }
@@ -131,11 +131,11 @@ namespace CA_10389618
             courseToolStripMenuItem.Visible = false;
             teacherToolStripMenuItem.Visible = false;
             saveAsToolStripMenuItem.Visible = false;
-            saveToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = false;
             
         }
 
+        // These buttons are only for representational purposes to add and remove users without a signup page
         private void btnClearUsers_Click(object sender, EventArgs e)
         {
             SqlConnection conn = EstablishConnection();
@@ -156,6 +156,7 @@ namespace CA_10389618
             }
         }
 
+        // These buttons are only for representational purposes to add and remove users without a signup page
         private void btnFillUsers_Click(object sender, EventArgs e)
         {
             SqlConnection conn = EstablishConnection();
@@ -183,9 +184,20 @@ namespace CA_10389618
             }
         }
 
+        // These buttons are only for representational purposes to add and remove users without a signup page
         private void btnShowUsersAndPasswords_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"User1: Admin, Password:password {Environment.NewLine}User2: Teacher, Password:teacher {Environment.NewLine}User3:Testuser, Password:test1234");
+        }
+
+
+        //hitting enter instead of submit button
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSubmit_Click(this, new EventArgs());
+            }
         }
     }
 }

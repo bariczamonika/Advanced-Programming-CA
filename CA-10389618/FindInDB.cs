@@ -14,103 +14,93 @@ namespace CA_10389618
 {
     public partial class FindInDB : Menu
     {
+        protected int action { get; set; }
         public FindInDB()
         {
             InitializeComponent();
         }
 
+        public FindInDB(int Action)
+        {
+            action = Action;
+            InitializeComponent();
+        }
+
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (txtByID.Text != "")
+            try
             {
+                //depending on what was the previous click (what we are trying to retrieve from the database) 
+                if (action == 1 || action == 2 || action == 3)
+                {
 
-                dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Student WHERE StudentID=@StudentID", "StudentID", int.Parse(txtByID.Text));
-                /*  SqlConnection conn=EstablishConnection();
-                  try
-                  {
-                      if (conn.State==ConnectionState.Closed || conn.State==ConnectionState.Broken)
-                      {
-                          conn.Open();
-                          string stmt1 = "SELECT * FROM Student WHERE StudentID=@StudentID";
-                          int.TryParse(txtByID.Text, out int k);
-                          SqlDataAdapter sqlDA = new SqlDataAdapter(stmt1,conn);
-                          sqlDA.SelectCommand.Parameters.AddWithValue("@StudentID", k);
-                          DataTable dtbl = new DataTable();
-                          sqlDA.Fill(dtbl);
-                          dgStudent.DataSource = dtbl;
-                      } 
-                  }
-                  catch
-                  (Exception ex)
-                  {
-                      MessageBox.Show(ex.Message);
-                  }
-                  finally
-                  {
-                      conn.Close();
-                  }*/
-            }
-            else if (txtByFirstName.Text != "")
-            {
-                string k = '%' + txtByFirstName.Text + '%';
-                dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Student WHERE FirstName LIKE @FirstName", "FirstName", k);
-                /*
-                SqlConnection conn = EstablishConnection();
-                try
-                {
-                    if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+                    if (txtByID.Text != "")
                     {
-                        conn.Open();
-                        string stmt1 = "SELECT * FROM Student WHERE FirstName LIKE @FirstName";
-                        SqlDataAdapter sqlDA = new SqlDataAdapter(stmt1, conn);
-                        string k = '%'+txtByFirstName.Text + '%';
-                        sqlDA.SelectCommand.Parameters.AddWithValue("@FirstName", k);
-                        DataTable dtbl = new DataTable();
-                        sqlDA.Fill(dtbl);
-                        dgStudent.DataSource = dtbl;
+
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Student " +
+                            "WHERE StudentID=@StudentID", "StudentID", int.Parse(txtByID.Text));
+
+                    }
+                    else if (txtByFirstName.Text != "")
+                    {
+                        string k = '%' + txtByFirstName.Text + '%';
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Student " +
+                            "WHERE FirstName LIKE @FirstName", "FirstName", k);
+
+                    }
+                    else if (txtByLastName.Text != "")
+                    {
+                        string k = '%' + txtByLastName.Text + '%';
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Student " +
+                            "WHERE LastName LIKE @LastName", "LastName", k);
                     }
                 }
-                catch
-                (Exception ex)
+                else if (action == 4 || action == 5 || action == 6)
                 {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }*/
-            }
-            else if (txtByLastName.Text != "")
-                //NOT WORKING FOR WHATEVER REASON
-            {
-                string k = '%' + txtByLastName.Text + '%';
-                dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Student WHERE LastName LIKE @LastName", "LastName", k);
-                /*
-                SqlConnection conn = EstablishConnection();
-                try
-                {
-                    if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+                    if (txtByID.Text != "")
                     {
-                        conn.Open();
-                        string stmt1 = "SELECT * FROM Student WHERE LastName=@LastName";
-                        string k = '%'+txtByLastName.Text + '%';
-                        SqlDataAdapter sqlDA = new SqlDataAdapter(stmt1, conn);
-                        sqlDA.SelectCommand.Parameters.AddWithValue("@LastName", k);
-                        DataTable dtbl = new DataTable();
-                        sqlDA.Fill(dtbl);
-                        dgStudent.DataSource = dtbl;
+
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Teacher " +
+                            "WHERE TeacherID=@TeacherID", "TeacherID", int.Parse(txtByID.Text));
+
+                    }
+                    else if (txtByFirstName.Text != "")
+                    {
+                        string k = '%' + txtByFirstName.Text + '%';
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Teacher " +
+                            "WHERE FirstName LIKE @FirstName", "FirstName", k);
+
+                    }
+                    else if (txtByLastName.Text != "")
+                    {
+                        string k = '%' + txtByLastName.Text + '%';
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Teacher " +
+                            "WHERE LastName LIKE @LastName", "LastName", k);
                     }
                 }
-                catch
-                (Exception ex)
+                else if (action == 7 || action == 8 || action == 9)
                 {
-                    MessageBox.Show(ex.Message);
+                    if (txtByID.Text != "")
+                    {
+
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT * FROM Course " +
+                            "WHERE CourseID=@CourseID", "CourseID", int.Parse(txtByID.Text));
+
+                    }
+                    else if (txtByFirstName.Text != "")
+                    {
+                        string k = '%' + txtByFirstName.Text + '%';
+                        dgStudent.DataSource = UseDBWithDataTable("SELECT Course.CourseID, " +
+                    "Course.CourseName, " +
+                    "Teacher.FirstName + ' ' + Teacher.LastName AS \"Teacher's name\" FROM Course  " +
+                    "INNER JOIN Teacher  ON Course.TeacherID=Teacher.TeacherID " +
+                    "WHERE Course.CourseName LIKE @CourseName", "CourseName", k);
+                    }
                 }
-                finally
-                {
-                    conn.Close();
-                }
-            }*/
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -124,14 +114,99 @@ namespace CA_10389618
         //if user clicks on the row they want to edit a new window comes up
         protected virtual void DgStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgStudent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                dgStudent.CurrentRow.Selected = true;
-                string ID = dgStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
-                int.TryParse(ID, out int SID);
-                this.Close();
-                EditStudent es = new EditStudent(SID);
-                es.Show();
+
+                if (dgStudent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dgStudent.CurrentRow.Selected = true;
+
+
+                    //edit student action
+                    if (action == 1)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        EditStudent es = new EditStudent(SID);
+                        es.Show();
+                    }
+                    //delete student action
+                    else if (action == 2)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        DeleteStudent ds = new DeleteStudent(SID);
+                        ds.Show();
+                    }
+                    //View student action
+                    else if (action == 3)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        ViewStudent vs = new ViewStudent(SID);
+                        vs.Show();
+                    }
+                    //edit teacher action
+                    else if (action == 4)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["TeacherID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        EditTeacher et = new EditTeacher(SID);
+                        et.Show();
+                    }
+                    //delete teacher action
+                    else if (action == 5)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["TeacherID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        DeleteTeacher dt = new DeleteTeacher(SID);
+                        dt.Show();
+                    }
+                    //view teacher action
+                    else if (action == 6)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["TeacherID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        ViewTeacher vt = new ViewTeacher(SID);
+                        vt.Show();
+                    }
+                    //edit course action
+                    else if (action == 7)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["CourseID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        EditCourse ec = new EditCourse(SID);
+                        ec.Show();
+                    }
+                    //delete course action
+                    else if (action == 8)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["CourseID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        DeleteCourse dc = new DeleteCourse(SID);
+                        dc.Show();
+                    }
+                    else if (action == 9)
+                    {
+                        string ID = dgStudent.Rows[e.RowIndex].Cells["CourseID"].FormattedValue.ToString();
+                        int.TryParse(ID, out int SID);
+                        this.Close();
+                        ViewCourse vc = new ViewCourse(SID);
+                        vc.Show();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Wrong cell has been clicked");
             }
         }
 
@@ -157,6 +232,16 @@ namespace CA_10389618
             if (e.KeyCode == Keys.Enter)
             {
                 btnFind_Click(this, new EventArgs());
+            }
+        }
+
+        private void FindInDB_Load(object sender, EventArgs e)
+        {
+            if (action == 9 || action == 7 || action==8)
+            {
+                label2.Text = "Find by Course Name";
+                label3.Visible = false;
+                txtByLastName.Visible = false;
             }
         }
     }

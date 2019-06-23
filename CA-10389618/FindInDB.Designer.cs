@@ -43,35 +43,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 41);
+            this.label1.Location = new System.Drawing.Point(14, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(66, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Find by ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 67);
+            this.label2.Location = new System.Drawing.Point(14, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.Size = new System.Drawing.Size(118, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Find by First Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 93);
+            this.label3.Location = new System.Drawing.Point(14, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.Size = new System.Drawing.Size(116, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Find by Last Name";
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(119, 112);
+            this.btnFind.Location = new System.Drawing.Point(139, 129);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(136, 23);
+            this.btnFind.Size = new System.Drawing.Size(159, 27);
             this.btnFind.TabIndex = 4;
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -79,33 +79,33 @@
             // 
             // txtByID
             // 
-            this.txtByID.Location = new System.Drawing.Point(119, 34);
+            this.txtByID.Location = new System.Drawing.Point(139, 39);
             this.txtByID.Name = "txtByID";
-            this.txtByID.Size = new System.Drawing.Size(298, 20);
+            this.txtByID.Size = new System.Drawing.Size(347, 22);
             this.txtByID.TabIndex = 1;
             this.txtByID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtByID_KeyDown);
             // 
             // txtByFirstName
             // 
-            this.txtByFirstName.Location = new System.Drawing.Point(119, 60);
+            this.txtByFirstName.Location = new System.Drawing.Point(139, 69);
             this.txtByFirstName.Name = "txtByFirstName";
-            this.txtByFirstName.Size = new System.Drawing.Size(298, 20);
+            this.txtByFirstName.Size = new System.Drawing.Size(347, 22);
             this.txtByFirstName.TabIndex = 2;
             this.txtByFirstName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtByFirstName_KeyDown);
             // 
             // txtByLastName
             // 
-            this.txtByLastName.Location = new System.Drawing.Point(119, 86);
+            this.txtByLastName.Location = new System.Drawing.Point(139, 99);
             this.txtByLastName.Name = "txtByLastName";
-            this.txtByLastName.Size = new System.Drawing.Size(298, 20);
+            this.txtByLastName.Size = new System.Drawing.Size(347, 22);
             this.txtByLastName.TabIndex = 3;
             this.txtByLastName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtByLastName_KeyDown);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(281, 112);
+            this.btnCancel.Location = new System.Drawing.Point(328, 129);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(136, 23);
+            this.btnCancel.Size = new System.Drawing.Size(159, 27);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -115,19 +115,21 @@
             // 
             this.dgStudent.AllowUserToAddRows = false;
             this.dgStudent.AllowUserToDeleteRows = false;
+            this.dgStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dgStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgStudent.Location = new System.Drawing.Point(15, 167);
+            this.dgStudent.Location = new System.Drawing.Point(17, 193);
             this.dgStudent.Name = "dgStudent";
             this.dgStudent.ReadOnly = true;
-            this.dgStudent.Size = new System.Drawing.Size(810, 150);
+            this.dgStudent.Size = new System.Drawing.Size(945, 173);
             this.dgStudent.TabIndex = 6;
             this.dgStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgStudent_CellClick);
             // 
             // FindInDB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 318);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(976, 369);
             this.Controls.Add(this.dgStudent);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtByLastName);
@@ -137,8 +139,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Location = new System.Drawing.Point(0, 0);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FindInDB";
-            this.Text = "Find Student";
+            this.Text = "Find in Database";
+            this.Load += new System.EventHandler(this.FindInDB_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);

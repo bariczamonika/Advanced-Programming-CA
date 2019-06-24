@@ -34,7 +34,8 @@ namespace CA_10389618
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?", 
+                "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 SqlConnection conn = EstablishConnection();

@@ -217,7 +217,8 @@ namespace CA_10389618
             {
                 index--;
             }
-            if (btnPrevious.FindForm() is EditCourse || btnPrevious.FindForm() is ViewCourse || btnPrevious.FindForm() is DeleteCourse)
+            if (btnPrevious.FindForm() is EditCourse || btnPrevious.FindForm() is ViewCourse || 
+                btnPrevious.FindForm() is DeleteCourse)
             {
                 RetrieveInfoForSelectedCourse(myIds[index]);
             }
@@ -234,7 +235,8 @@ namespace CA_10389618
             {
                 index++;
             }
-            if (btnPrevious.FindForm() is EditCourse || btnPrevious.FindForm() is ViewCourse|| btnPrevious.FindForm() is DeleteCourse)
+            if (btnPrevious.FindForm() is EditCourse || btnPrevious.FindForm() is ViewCourse|| 
+                btnPrevious.FindForm() is DeleteCourse)
             {
                 RetrieveInfoForSelectedCourse(myIds[index]);
             }

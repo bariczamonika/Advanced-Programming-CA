@@ -34,7 +34,8 @@ namespace CA_10389618
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?", 
+                "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 SqlConnection conn = EstablishConnection();
@@ -47,7 +48,8 @@ namespace CA_10389618
                     MustFillUpCourseForm();
                     if (dtpEndDate.Value < dtpStartDate.Value)
                         throw new Exception("The end date cannot be earlier than the start date");
-                    string stmt1 = "UPDATE Course SET CourseName=@CourseName, CourseDescription=@CourseDescription, StartDate=@StartDate, " +
+                    string stmt1 = "UPDATE Course SET CourseName=@CourseName, CourseDescription=@CourseDescription, " +
+                        "StartDate=@StartDate, " +
                         "EndDate=@EndDate, TeacherID=@TeacherID WHERE CourseID=@CourseID;";
                     SqlCommand cmd = new SqlCommand(stmt1, conn);
                     cmd.Parameters.AddWithValue("@CourseID", txtCourseID.Text);

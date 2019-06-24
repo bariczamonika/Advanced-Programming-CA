@@ -38,7 +38,8 @@ namespace CA_10389618
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?", 
+                "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 SqlConnection conn = EstablishConnection();
@@ -50,8 +51,10 @@ namespace CA_10389618
                         conn.Open();
                     //delete from all tables TODO
                     string stmt = "DELETE FROM Teacher WHERE TeacherID=@TeacherID";
-                    string stmt1 = "DELETE c FROM Course c INNER JOIN Teacher t ON c.TeacherID=t.TeacherID WHERE c.TeacherID=@TeacherID;";
-                    string stmt2 = "DELETE c FROM CourseManagement c INNER JOIN Course cc ON c.CourseID=cc.CourseID WHERE cc.TeacherID=@TeacherID;";
+                    string stmt1 = "DELETE c FROM Course c INNER JOIN Teacher t ON c.TeacherID=t.TeacherID " +
+                        "WHERE c.TeacherID=@TeacherID;";
+                    string stmt2 = "DELETE c FROM CourseManagement c INNER JOIN Course cc ON " +
+                        "c.CourseID=cc.CourseID WHERE cc.TeacherID=@TeacherID;";
     
                     SqlCommand cmd2 = new SqlCommand(stmt2, conn);
                     SqlCommand cmd1 = new SqlCommand(stmt1, conn);

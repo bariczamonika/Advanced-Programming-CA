@@ -32,8 +32,10 @@ namespace CA_10389618
                 if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
                     conn.Open();
                 MustFillUp();
-                string stmt1 = "INSERT INTO Student (StudentID, FirstName, LastName, Country, County, City, AddressLine1, AddressLine2, Level, PhoneNumber, Email) " +
-                    "VALUES(@StudentID,@FirstName, @LastName, @Country, @County, @City, @AddressLine1, @AddressLine2, @Level, @Phone, @Email);";
+                string stmt1 = "INSERT INTO Student (StudentID, FirstName, LastName, Country, County, " +
+                    "City, AddressLine1, AddressLine2, Level, PhoneNumber, Email) " +
+                    "VALUES(@StudentID,@FirstName, @LastName, @Country, @County, @City, @AddressLine1, " +
+                    "@AddressLine2, @Level, @Phone, @Email);";
                 SqlCommand cmd = new SqlCommand(stmt1, conn);
                 Level lvl = Level.Undergraduate;
                 if (rbPostGraduate.Checked == true)

@@ -47,7 +47,8 @@ namespace CA_10389618
             }
         }
 
-        //this is a method to use the database with a datatable. It is a universal method it takes the sql command, the variable is what we are searching by
+        //this is a method to use the database with a datatable. It is a universal method it takes the sql command, 
+        //the variable is what we are searching by
         // and the object named k is the controller that we are reading it in from
         protected DataTable UseDBWithDataTable(string sqlcmd, string variable, object k)
         {
@@ -81,7 +82,8 @@ namespace CA_10389618
 
         protected void HitCancelButton()
         {
-            if (MessageBox.Show("Are you sure you would like to cancel?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you would like to cancel?", "Message", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 MainScreen m = new MainScreen();
                 m.Show();
@@ -179,7 +181,8 @@ namespace CA_10389618
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure?", "Quit", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -187,7 +190,8 @@ namespace CA_10389618
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
                 Login_Screen fl = new Login_Screen();
@@ -381,12 +385,7 @@ namespace CA_10389618
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
-            /*XmlTextWriter tW = new XmlTextWriter("Myfile.xml", null);
-            tW.WriteStartDocument();
-            tW.WriteStartElement(dg.rowheader)
-            tW.WriteEndDocument();
-            tW.Close();*/
+            }       
         }
     }
 }

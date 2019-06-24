@@ -174,7 +174,8 @@ namespace CA_10389618
             {
                 if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
                     conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Users(ID,Username,Password) VALUES(1,'Admin',@secPassword)", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Users(ID,Username,Password) " +
+                    "VALUES(1,'Admin',@secPassword)", conn);
                 cmd.Parameters.AddWithValue("@secPassword", hashPassword("password"));
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand("INSERT INTO dbo.Users(ID,Username,Password) VALUES(2,'Teacher',@secPassword)", conn);

@@ -43,11 +43,13 @@ namespace CA_10389618
             string command = "";
             List<int> myIDs = new List<int>();
             SqlConnection conn = EstablishConnection();
-            if (ActiveForm is AddStudent || ActiveForm is EditStudent || ActiveForm is DeleteStudent || ActiveForm is ViewStudent)
+            if (ActiveForm is AddStudent || ActiveForm is EditStudent || ActiveForm is DeleteStudent 
+                || ActiveForm is ViewStudent)
             {
                 command = "SELECT StudentID FROM Student ORDER BY StudentID ASC";
             }
-            else if (ActiveForm is AddTeacher || ActiveForm is EditTeacher || ActiveForm is DeleteTeacher || ActiveForm is ViewTeacher)
+            else if (ActiveForm is AddTeacher || ActiveForm is EditTeacher || ActiveForm is DeleteTeacher 
+                || ActiveForm is ViewTeacher)
             {
                 command = "SELECT TeacherID FROM Teacher ORDER BY TeacherID ASC";
                 
@@ -218,12 +220,14 @@ namespace CA_10389618
             {
                 index--;
             }
-            if (btnPrevious.FindForm() is EditStudent || btnPrevious.FindForm() is ViewStudent || btnPrevious.FindForm() is DeleteStudent)
+            if (btnPrevious.FindForm() is EditStudent || btnPrevious.FindForm() is ViewStudent || 
+                btnPrevious.FindForm() is DeleteStudent)
             {
                 RetrieveInfoForSelectedStudent(myIds[index]);
             }
             else if 
-                (btnPrevious.FindForm() is EditTeacher || btnPrevious.FindForm() is DeleteTeacher|| btnPrevious.FindForm() is ViewTeacher)
+                (btnPrevious.FindForm() is EditTeacher || btnPrevious.FindForm() is DeleteTeacher|| 
+                btnPrevious.FindForm() is ViewTeacher)
             {
                 RetrieveInfoForSelectedTeacher(myIds[index]);
             }
@@ -241,13 +245,15 @@ namespace CA_10389618
             {
                 index++;
             }
-            if (btnNext.FindForm() is EditStudent || btnNext.FindForm() is ViewStudent || btnNext.FindForm() is DeleteStudent)
+            if (btnNext.FindForm() is EditStudent || btnNext.FindForm() is ViewStudent || 
+                btnNext.FindForm() is DeleteStudent)
             {
                 RetrieveInfoForSelectedStudent(myIds[index]);
                
             }
             else if
-                (btnNext.FindForm() is EditTeacher || btnNext.FindForm()is DeleteTeacher || btnNext.FindForm() is ViewTeacher)
+                (btnNext.FindForm() is EditTeacher || btnNext.FindForm()is DeleteTeacher || 
+                btnNext.FindForm() is ViewTeacher)
             {
                 RetrieveInfoForSelectedTeacher(myIds[index]);
             }

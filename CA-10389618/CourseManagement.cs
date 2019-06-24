@@ -29,7 +29,8 @@ namespace CA_10389618
             {
                 if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
                     conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT StudentID FROM Student WHERE FirstName=@FirstName AND LastName=@LastName", conn);
+                SqlCommand cmd = new SqlCommand("SELECT StudentID FROM Student WHERE " +
+                    "FirstName=@FirstName AND LastName=@LastName", conn);
                 cmd.Parameters.AddWithValue("@FirstName", fName);
                 cmd.Parameters.AddWithValue("@LastName", lName);
                 SqlDataReader reader = cmd.ExecuteReader();

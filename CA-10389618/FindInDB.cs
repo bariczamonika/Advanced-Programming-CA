@@ -17,11 +17,37 @@ namespace CA_10389618
         protected int action { get; set; }
         public FindInDB()
         {
+            if (!User.admin)
+            {
+                addCourseToolStripMenuItem.Visible = false;
+                addTeacherToolStripMenuItem.Visible = false;
+                addStudentToolStripMenuItem.Visible = false;
+                editCourseToolStripMenuItem.Visible = false;
+                editStudentToolStripMenuItem.Visible = false;
+                editTeacherToolStripMenuItem.Visible = false;
+                courseManagementToolStripMenuItem.Visible = false;
+                deleteCourseToolStripMenuItem.Visible = false;
+                deleteStudentToolStripMenuItem.Visible = false;
+                deleteTeacherToolStripMenuItem.Visible = false;
+            }
             InitializeComponent();
         }
 
         public FindInDB(int Action)
         {
+            if (!User.admin)
+            {
+                addCourseToolStripMenuItem.Visible = false;
+                addTeacherToolStripMenuItem.Visible = false;
+                addStudentToolStripMenuItem.Visible = false;
+                editCourseToolStripMenuItem.Visible = false;
+                editStudentToolStripMenuItem.Visible = false;
+                editTeacherToolStripMenuItem.Visible = false;
+                courseManagementToolStripMenuItem.Visible = false;
+                deleteCourseToolStripMenuItem.Visible = false;
+                deleteStudentToolStripMenuItem.Visible = false;
+                deleteTeacherToolStripMenuItem.Visible = false;
+            }
             action = Action;
             InitializeComponent();
         }

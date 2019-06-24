@@ -18,6 +18,19 @@ namespace CA_10389618
 
         public Person()
         {
+            if (!User.admin)
+            {
+                addCourseToolStripMenuItem.Visible = false;
+                addTeacherToolStripMenuItem.Visible = false;
+                addStudentToolStripMenuItem.Visible = false;
+                editCourseToolStripMenuItem.Visible = false;
+                editStudentToolStripMenuItem.Visible = false;
+                editTeacherToolStripMenuItem.Visible = false;
+                courseManagementToolStripMenuItem.Visible = false;
+                deleteCourseToolStripMenuItem.Visible = false;
+                deleteStudentToolStripMenuItem.Visible = false;
+                deleteTeacherToolStripMenuItem.Visible = false;
+            }
             InitializeComponent();
         }
 

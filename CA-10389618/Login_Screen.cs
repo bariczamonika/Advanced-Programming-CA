@@ -63,6 +63,7 @@ namespace CA_10389618
         {
             SqlConnection conn = EstablishConnection();
             bool ok = false;
+     
             try
             {
 
@@ -107,6 +108,14 @@ namespace CA_10389618
                         string savedHashedPassword = rdr.GetString(0);
                         if (CheckSecurePassword(pWord, savedHashedPassword))
                         {
+                            if (uName=="Admin")
+                            {
+                                User.admin = true;
+                            }
+                            else
+                            {
+                                User.admin = false;
+                            }
                             this.Hide();
                             MainScreen mc = new MainScreen();
                             mc.Show();
@@ -114,6 +123,7 @@ namespace CA_10389618
 
                     }
                 }
+                
             }
             catch(Exception ex)
             {
@@ -121,8 +131,7 @@ namespace CA_10389618
             }
             finally
             { conn.Close(); }
-            
-    
+
         }
 
         private void Login_Screen_Load(object sender, EventArgs e)
@@ -132,6 +141,7 @@ namespace CA_10389618
             teacherToolStripMenuItem.Visible = false;
             saveAsToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = false;
+            courseManagementToolStripMenuItem.Visible = false;
             
         }
 

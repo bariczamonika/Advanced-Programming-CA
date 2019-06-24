@@ -131,7 +131,7 @@
             this.btnShowUsersAndPasswords.Name = "btnShowUsersAndPasswords";
             this.btnShowUsersAndPasswords.Size = new System.Drawing.Size(145, 23);
             this.btnShowUsersAndPasswords.TabIndex = 11;
-            this.btnShowUsersAndPasswords.Text = "Show users and passwords";
+            this.btnShowUsersAndPasswords.Text = "Show users ";
             this.btnShowUsersAndPasswords.UseVisualStyleBackColor = true;
             this.btnShowUsersAndPasswords.Click += new System.EventHandler(this.btnShowUsersAndPasswords_Click);
             // 

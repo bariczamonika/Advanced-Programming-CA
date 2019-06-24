@@ -82,6 +82,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "MainScreen";
             this.Text = "Main Screen";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.Controls.SetChildIndex(this.dgvInfo, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).EndInit();
             this.ResumeLayout(false);

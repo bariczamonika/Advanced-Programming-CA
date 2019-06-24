@@ -16,6 +16,7 @@ namespace CA_10389618
     {
         public CourseManagement()
         {
+            
             InitializeComponent();
         }
 

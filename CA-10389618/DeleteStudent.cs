@@ -14,7 +14,7 @@ namespace CA_10389618
 {
     public partial class DeleteStudent : Person
     {
-        public DeleteStudent(int ID)
+        public DeleteStudent(int ID )
         {
             InitializeComponent();
             SqlConnection conn = EstablishConnection();

@@ -14,12 +14,21 @@ using System.Xml;
 
 namespace CA_10389618
 {
+    //static class to store user role
+    static class User
+    {
+        public static bool admin;
+    }
     public partial class Menu : Form
     {
+        
+        
         public Menu()
         {
+            
             CenterToScreen();
             InitializeComponent();
+           
         }
 
         //this is a universal method to establish connection with the database

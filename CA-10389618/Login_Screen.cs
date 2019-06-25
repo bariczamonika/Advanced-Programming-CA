@@ -142,6 +142,7 @@ namespace CA_10389618
             saveAsToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = false;
             courseManagementToolStripMenuItem.Visible = false;
+            mainScreenToolStripMenuItem.Visible = false;    
             
         }
 

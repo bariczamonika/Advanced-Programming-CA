@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
-                this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-                this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.mainScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.addStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.editStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.deleteStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.viewStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.viewDatabaseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.editCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.deleteCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.viewCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.viewDatabaseHistoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-                this.teacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.addTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.editTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.deleteTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.viewTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.viewDatabaseHistoryToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-                this.courseManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                this.menuStrip1.SuspendLayout();
-                this.SuspendLayout();
-            
-               
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewDatabaseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewDatabaseHistoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewDatabaseHistoryToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.courseManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enrollStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.courseManagementInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // menuStrip1
             // 
@@ -89,28 +88,28 @@
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // mainScreenToolStripMenuItem
             // 
             this.mainScreenToolStripMenuItem.Name = "mainScreenToolStripMenuItem";
-            this.mainScreenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainScreenToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.mainScreenToolStripMenuItem.Text = "Main screen";
             this.mainScreenToolStripMenuItem.Click += new System.EventHandler(this.mainScreenToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -257,11 +256,27 @@
             // 
             // courseManagementToolStripMenuItem
             // 
+            this.courseManagementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enrollStudentToolStripMenuItem,
+            this.courseManagementInfoToolStripMenuItem});
             this.courseManagementToolStripMenuItem.Font = new System.Drawing.Font("Lucida Sans Unicode", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.courseManagementToolStripMenuItem.Name = "courseManagementToolStripMenuItem";
             this.courseManagementToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
             this.courseManagementToolStripMenuItem.Text = "Course Management";
-            this.courseManagementToolStripMenuItem.Click += new System.EventHandler(this.courseManagementToolStripMenuItem_Click);
+            // 
+            // enrollStudentToolStripMenuItem
+            // 
+            this.enrollStudentToolStripMenuItem.Name = "enrollStudentToolStripMenuItem";
+            this.enrollStudentToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.enrollStudentToolStripMenuItem.Text = "Enroll Student";
+            this.enrollStudentToolStripMenuItem.Click += new System.EventHandler(this.enrollStudentToolStripMenuItem_Click);
+            // 
+            // courseManagementInfoToolStripMenuItem
+            // 
+            this.courseManagementInfoToolStripMenuItem.Name = "courseManagementInfoToolStripMenuItem";
+            this.courseManagementInfoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.courseManagementInfoToolStripMenuItem.Text = "Course Management Info";
+            this.courseManagementInfoToolStripMenuItem.Click += new System.EventHandler(this.courseManagementInfoToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -314,6 +329,8 @@
         protected System.Windows.Forms.ToolStripMenuItem viewDatabaseHistoryToolStripMenuItem2;
         protected System.Windows.Forms.ToolStripMenuItem courseManagementToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem mainScreenToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem enrollStudentToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem courseManagementInfoToolStripMenuItem;
     }
 }
 

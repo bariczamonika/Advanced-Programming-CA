@@ -23,7 +23,7 @@ namespace CA_10389618
                 editCourseToolStripMenuItem.Visible = false;
                 editStudentToolStripMenuItem.Visible = false;
                 editTeacherToolStripMenuItem.Visible = false;
-                courseManagementToolStripMenuItem.Visible = false;
+                enrollStudentToolStripMenuItem.Visible = false;
                 deleteCourseToolStripMenuItem.Visible = false;
                 deleteStudentToolStripMenuItem.Visible = false;
                 deleteTeacherToolStripMenuItem.Visible = false;

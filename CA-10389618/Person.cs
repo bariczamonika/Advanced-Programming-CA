@@ -26,7 +26,7 @@ namespace CA_10389618
                 editCourseToolStripMenuItem.Visible = false;
                 editStudentToolStripMenuItem.Visible = false;
                 editTeacherToolStripMenuItem.Visible = false;
-                courseManagementToolStripMenuItem.Visible = false;
+                enrollStudentToolStripMenuItem.Visible = false;
                 deleteCourseToolStripMenuItem.Visible = false;
                 deleteStudentToolStripMenuItem.Visible = false;
                 deleteTeacherToolStripMenuItem.Visible = false;
@@ -34,48 +34,7 @@ namespace CA_10389618
             InitializeComponent();
         }
 
-        //this method was written after I discovered a bug
-        //if a teacher was deleted from the db, the previous and next buttons wouldn't have worked 
-        //as the IDs were only increased or decreased by 1
-        protected List<int> GetAllIDs()
-        {
-            int k = 0;
-            string command = "";
-            List<int> myIDs = new List<int>();
-            SqlConnection conn = EstablishConnection();
-            if (ActiveForm is AddStudent || ActiveForm is EditStudent || ActiveForm is DeleteStudent 
-                || ActiveForm is ViewStudent)
-            {
-                command = "SELECT StudentID FROM Student ORDER BY StudentID ASC";
-            }
-            else if (ActiveForm is AddTeacher || ActiveForm is EditTeacher || ActiveForm is DeleteTeacher 
-                || ActiveForm is ViewTeacher)
-            {
-                command = "SELECT TeacherID FROM Teacher ORDER BY TeacherID ASC";
-                
-            }
-            try
-            {
-                if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
-                    conn.Open();
-                SqlCommand c = new SqlCommand(command, conn);
-                SqlDataReader reader = c.ExecuteReader();
-                while (reader.Read())
-                {
-                    int.TryParse(reader[0].ToString(), out k);
-                    myIDs.Add(k);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return myIDs;
-        }
+
         
 
         //method to clear form and add automated StudentID

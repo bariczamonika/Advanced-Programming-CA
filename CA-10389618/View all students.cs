@@ -14,6 +14,19 @@ namespace CA_10389618
     {
         public View_all_students()
         {
+            if (!User.admin)
+            {
+                addCourseToolStripMenuItem.Visible = false;
+                addTeacherToolStripMenuItem.Visible = false;
+                addStudentToolStripMenuItem.Visible = false;
+                editCourseToolStripMenuItem.Visible = false;
+                editStudentToolStripMenuItem.Visible = false;
+                editTeacherToolStripMenuItem.Visible = false;
+                enrollStudentToolStripMenuItem.Visible = false;
+                deleteCourseToolStripMenuItem.Visible = false;
+                deleteStudentToolStripMenuItem.Visible = false;
+                deleteTeacherToolStripMenuItem.Visible = false;
+            }
             InitializeComponent();
       
             dgAllStudents.DataSource = UseDBWithDataTable("SELECT * FROM Student", "", "");

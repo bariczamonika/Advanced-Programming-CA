@@ -23,7 +23,7 @@ namespace CA_10389618
                 editCourseToolStripMenuItem.Visible = false;
                 editStudentToolStripMenuItem.Visible = false;
                 editTeacherToolStripMenuItem.Visible = false;
-                courseManagementToolStripMenuItem.Visible = false;
+                enrollStudentToolStripMenuItem.Visible = false;
                 deleteCourseToolStripMenuItem.Visible = false;
                 deleteStudentToolStripMenuItem.Visible = false;
                 deleteTeacherToolStripMenuItem.Visible = false;
@@ -37,41 +37,6 @@ namespace CA_10389618
             HitCancelButton();
         }
 
-
-        //returns all the course ids in the database
-        protected List<int> GetAllIDs()
-        {
-            int k = 0;
-            string command = "";
-            List<int> myIDs = new List<int>();
-            SqlConnection conn = EstablishConnection();
-            if (ActiveForm is Course)
-            {
-                command = "SELECT CourseID FROM Course ORDER BY CourseID ASC";
-            }
-            
-            try
-            {
-                if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
-                    conn.Open();
-                SqlCommand c = new SqlCommand(command, conn);
-                SqlDataReader reader = c.ExecuteReader();
-                while (reader.Read())
-                {
-                    int.TryParse(reader[0].ToString(), out k);
-                    myIDs.Add(k);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return myIDs;
-        }
 
         //get the list of teachers for the drop down list
         protected List<string> GetTeacherList()

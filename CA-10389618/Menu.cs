@@ -14,11 +14,7 @@ using System.Xml;
 
 namespace CA_10389618
 {
-    //static class to store user role
-    static class User
-    {
-        public static bool admin;
-    }
+
     public partial class Menu : Form
     {
         
@@ -116,7 +112,7 @@ namespace CA_10389618
                     {
                         x = 9999999;
                     }
-                    while (reader.Read() && (x==k))
+                    while (reader.Read() )
                     {
                             int.TryParse(reader[0].ToString(), out k);
                             x++;
@@ -135,7 +131,7 @@ namespace CA_10389618
                     {
                         x = 0;
                     }
-                    while (reader.Read() && (x == k))
+                    while (reader.Read() )
                     {
                         int.TryParse(reader[0].ToString(), out k);
                         x++;
@@ -155,7 +151,7 @@ namespace CA_10389618
                     {
                         k = 99;
                     }
-                    while (reader.Read() && (x == k))
+                    while (reader.Read() )
                     {
                         int.TryParse(reader[0].ToString(), out k);
                         x++;
@@ -177,7 +173,56 @@ namespace CA_10389618
             return x;
         }
 
-        
+        //this method was written after I discovered a bug
+        //if a teacher was deleted from the db, the previous and next buttons wouldn't have worked 
+        //as the IDs were only increased or decreased by 1
+        protected List<int> GetAllIDs()
+        {
+            int k = 0;
+            string command = "";
+            List<int> myIDs = new List<int>();
+            SqlConnection conn = EstablishConnection();
+            if (ActiveForm is AddStudent || ActiveForm is EditStudent || ActiveForm is DeleteStudent
+                || ActiveForm is ViewStudent)
+            {
+                command = "SELECT StudentID FROM Student ORDER BY StudentID ASC";
+            }
+            else if (ActiveForm is AddTeacher || ActiveForm is EditTeacher || ActiveForm is DeleteTeacher
+                || ActiveForm is ViewTeacher)
+            {
+                command = "SELECT TeacherID FROM Teacher ORDER BY TeacherID ASC";
+
+            }
+            else if (ActiveForm is CourseManagementInfo)
+            {
+                command = "SELECT CourseID FROM Course ORDER BY CourseID ASC";
+            }
+            else if (ActiveForm is Course)
+            {
+                command = "SELECT CourseID FROM Course ORDER BY CourseID ASC";
+            }
+            try
+            {
+                if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+                    conn.Open();
+                SqlCommand c = new SqlCommand(command, conn);
+                SqlDataReader reader = c.ExecuteReader();
+                while (reader.Read())
+                {
+                    int.TryParse(reader[0].ToString(), out k);
+                    myIDs.Add(k);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return myIDs;
+        }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -319,12 +364,6 @@ namespace CA_10389618
             vac.Show();
         }
 
-        private void courseManagementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            CourseManagement cm = new CourseManagement();
-            cm.Show();
-        }
 
         private void mainScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -387,5 +426,24 @@ namespace CA_10389618
                 }
             }       
         }
+
+        private void enrollStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CourseManagement cm = new CourseManagement();
+            cm.Show();
+        }
+
+        private void courseManagementInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CourseManagementInfo cmi = new CourseManagementInfo();
+            cmi.Show();
+        }
+    }
+    //static class to store user role
+    static class User
+    {
+        public static bool admin;
     }
 }

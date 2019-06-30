@@ -15,6 +15,8 @@ namespace CA_10389618
     {
         public CourseManagementInfo()
         {
+            
+            InitializeComponent();
             if (!User.admin)
             {
                 addCourseToolStripMenuItem.Visible = false;
@@ -27,15 +29,18 @@ namespace CA_10389618
                 deleteCourseToolStripMenuItem.Visible = false;
                 deleteStudentToolStripMenuItem.Visible = false;
                 deleteTeacherToolStripMenuItem.Visible = false;
+                cbStudentName.Visible = false;
+                btnSubmit.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
             }
-            InitializeComponent();
             InitializeDataTableForCourseInfo();
-           // FillDataTableForCourseManInfo(101);
     
         }
 
         protected void InitializeDataTableForCourseInfo()
         {
+            
             SqlConnection conn = EstablishConnection();
             try
             {
@@ -69,6 +74,13 @@ namespace CA_10389618
                 DataTable dtbl2 = new DataTable();
                 dtbl2 = UseDBWithDataTable(stmt2, "CourseID", CourseID);
                 dgvCourseManInfo.DataSource = dtbl2;
+                List<string> studentNames = new List<string>();
+                foreach (DataRow row in dtbl2.Rows)
+                {  
+                    studentNames.Add(row["FirstName"].ToString() + " " + row["LastName"].ToString());
+                }
+                cbStudentName.DataSource = studentNames;
+                txtStudentID.Text = dtbl2.Rows[0][0].ToString();
             }
             catch (Exception ex)
             {
@@ -115,6 +127,13 @@ namespace CA_10389618
                 DataTable dtbl2 = new DataTable();
                 dtbl2 = UseDBWithDataTable(stmt2, "CourseID", int.Parse(txtCourseID.Text));
                 dgvCourseManInfo.DataSource = dtbl2;
+                List<string> studentNames = new List<string>();
+                foreach (DataRow row in dtbl2.Rows)
+                {
+                    studentNames.Add(row["FirstName"].ToString() + " " + row["LastName"].ToString());
+                }
+                txtStudentID.Text = dtbl2.Rows[0][0].ToString();
+                cbStudentName.DataSource = studentNames;
             }
             catch (Exception ex)
             {
@@ -190,5 +209,82 @@ namespace CA_10389618
             }
             catch { MessageBox.Show("Wrong cell has been clicked"); }
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you would like to make these changes?",
+               "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                SqlConnection conn = EstablishConnection();
+                try
+                {
+
+                    //delete from database
+                    if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+                        conn.Open();
+                    string stmt = "DELETE FROM CourseManagement WHERE StudentID=@StudentID";
+                    SqlCommand cmd = new SqlCommand(stmt, conn);
+                    cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Student deleted");
+                    this.Close();
+                    CourseManagementInfo cmi = new CourseManagementInfo();
+                    cmi.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            else if (dr == DialogResult.Cancel)
+            {
+                HitCancelButton();
+            }
+        }
+
+        private void cbStudentName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            SqlConnection conn = EstablishConnection();
+            
+            try
+            {
+                
+                if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+                    conn.Open();
+                
+                
+                string stmt3 = "SELECT StudentID FROM Student WHERE FirstName=@FirstName AND LastName=@LastName";
+                SqlCommand cmd = new SqlCommand(stmt3, conn);
+                string[] name = cbStudentName.SelectedItem.ToString().Split(' ');
+                cmd.Parameters.AddWithValue("@FirstName", name[0]);
+                cmd.Parameters.AddWithValue("@LastName", name[1]);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                int k = 0;
+                while (rdr.Read())
+                {
+                    int.TryParse(rdr[0].ToString(), out k);
+
+                }
+                txtStudentID.Text = k.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
-}
+    }
+

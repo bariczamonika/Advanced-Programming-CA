@@ -44,6 +44,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtCourseID = new System.Windows.Forms.TextBox();
+            this.cbStudentName = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtStudentID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseManInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +128,7 @@
             this.dgvCourseManInfo.Location = new System.Drawing.Point(19, 200);
             this.dgvCourseManInfo.Name = "dgvCourseManInfo";
             this.dgvCourseManInfo.ReadOnly = true;
-            this.dgvCourseManInfo.Size = new System.Drawing.Size(661, 216);
+            this.dgvCourseManInfo.Size = new System.Drawing.Size(487, 216);
             this.dgvCourseManInfo.TabIndex = 8;
             this.dgvCourseManInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourseManInfo_CellClick);
             // 
@@ -173,7 +178,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(449, 422);
+            this.button2.Location = new System.Drawing.Point(275, 422);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(231, 23);
             this.button2.TabIndex = 14;
@@ -189,11 +194,61 @@
             this.txtCourseID.TabIndex = 15;
             this.txtCourseID.Visible = false;
             // 
+            // cbStudentName
+            // 
+            this.cbStudentName.FormattingEnabled = true;
+            this.cbStudentName.Location = new System.Drawing.Point(693, 227);
+            this.cbStudentName.Name = "cbStudentName";
+            this.cbStudentName.Size = new System.Drawing.Size(121, 23);
+            this.cbStudentName.TabIndex = 16;
+            this.cbStudentName.SelectionChangeCommitted += new System.EventHandler(this.cbStudentName_SelectionChangeCommitted);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(557, 235);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Student\'s name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(557, 200);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(183, 15);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Remove student from course";
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(560, 276);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 19;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // txtStudentID
+            // 
+            this.txtStudentID.Location = new System.Drawing.Point(290, 174);
+            this.txtStudentID.Name = "txtStudentID";
+            this.txtStudentID.Size = new System.Drawing.Size(100, 22);
+            this.txtStudentID.TabIndex = 20;
+            this.txtStudentID.Visible = false;
+            // 
             // CourseManagementInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
+            this.Controls.Add(this.txtStudentID);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cbStudentName);
             this.Controls.Add(this.txtCourseID);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -230,6 +285,11 @@
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.button2, 0);
             this.Controls.SetChildIndex(this.txtCourseID, 0);
+            this.Controls.SetChildIndex(this.cbStudentName, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.btnSubmit, 0);
+            this.Controls.SetChildIndex(this.txtStudentID, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseManInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -254,5 +314,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtCourseID;
+        private System.Windows.Forms.ComboBox cbStudentName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.TextBox txtStudentID;
     }
 }

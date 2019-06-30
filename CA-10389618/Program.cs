@@ -18,8 +18,6 @@ namespace CA_10389618
             Application.SetCompatibleTextRenderingDefault(false);
             Login_Screen lgScreen = new Login_Screen();
             Application.Run(lgScreen);
-            //CourseManagementInfo cmi = new CourseManagementInfo();
-           // Application.Run(cmi);
         }
     }
 }
